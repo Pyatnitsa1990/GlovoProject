@@ -22,7 +22,7 @@ public class ProductService {
     private final OrderRepository orderRepository;
 
     @Autowired
-    public ProductService(ProductRepository productRepository,OrderRepository orderRepository) {
+    public ProductService(ProductRepository productRepository, OrderRepository orderRepository) {
         this.productRepository = productRepository;
         this.orderRepository = orderRepository;
     }
@@ -59,6 +59,8 @@ public class ProductService {
         ProductEntity productEntity = ProductMapper.mapToEntity(product);
         productRepository.save(productEntity);
     }
+
+
     public void update(Product product) throws ProductException {
         if (product == null) {
             throw new ProductException("You must set product");
